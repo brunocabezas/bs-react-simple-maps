@@ -21,6 +21,7 @@ module Props = {
     width: int,
     height: int,
     projection: string,
+    projectionAsMethod: unit => unit,
     projectionConfig,
   };
 };
@@ -32,11 +33,24 @@ let make =
       ~width=800,
       ~height=450,
       ~projection="times",
+      ~projectionAsMethod=?,
       ~projectionConfig,
       children,
-    ) =>
+    ) => {
+  let projectionProp =
+    switch (projectionAsMethod) {
+    | None => projection
+    | Some(arg) => arg
+    };
   ReasonReact.wrapJsForReason(
     ~reactClass=composableMapClass,
-    ~props=Props.jsProps(~width, ~height, ~projection, ~projectionConfig),
+    ~props=
+      Props.jsProps(
+        ~width,
+        ~height,
+        ~projection=projectionProp,
+        ~projectionConfig,
+      ),
     children,
   );
+};
