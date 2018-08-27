@@ -3,7 +3,7 @@ external zoomableGroupClass : ReasonReact.reactClass = "ZoomableGroup";
 
 [@bs.deriving abstract]
 type jsProps = {
-  zoom: int,
+  zoom: float,
   center: Types.coords,
   disablePanning: bool,
   style: ReactDOMRe.Style.t,
@@ -11,7 +11,7 @@ type jsProps = {
 
 let make =
     (
-      ~zoom: int=1,
+      ~zoom: float=1.0,
       ~center: Types.coords=(0., 0.),
       ~disablePanning: bool=false,
       ~style: ReactDOMRe.Style.t=ReactDOMRe.Style.make(),
