@@ -3,7 +3,7 @@ type projectionT;
 [@bs.module "react-simple-maps"]
 external geographyClass : ReasonReact.reactClass = "Geography";
 
-[@bs.deriving abstract]
+[@bs.deriving {jsConverter: newType}]
 type properties = {
   [@bs.as "NAME_0"]
   nAME_0: string,
@@ -16,12 +16,11 @@ type properties = {
   iSO: string,
 };
 
-[@bs.deriving abstract]
+[@bs.deriving {jsConverter: newType}]
 type geography = {
   id: string,
-  [@bs.as "type"]
   type_: string,
-  properties,
+  properties: abs_properties,
 };
 
 module Props = {
@@ -32,7 +31,7 @@ module Props = {
     round: bool,
     [@bs.as "data-tip"]
     dataTip: string,
-    geography: Js.undefined(geography),
+    geography: Js.undefined(abs_geography),
     tabable: Js.undefined(bool),
     projection: projectionT,
     style: Types.style,
