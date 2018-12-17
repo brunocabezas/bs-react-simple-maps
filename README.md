@@ -1,8 +1,18 @@
 # bs-react-simple-maps
 
-[BuckleScript](https://github.com/bucklescript/bucklescript) bindings for [react-simple-maps](https://github.com/zcreativelabs/react-simple-maps)
+Forked version of [BuckleScript bindings for react-simple-maps](https://github.com/reasonml-community/bs-react-simple-maps)
+
 
 [![npm](https://img.shields.io/npm/v/bs-simple-maps.svg)](https://www.npmjs.com/package/bs-simple-maps)
+
+
+Changes:
+- Updated package name to bs-simple-maps
+- Zoom attribute must be _float_ instead of _int_
+- Removed deriving abstract props because
+- `ComposableMap` has new `style` props.
+- Updated `Geography` props to fit format
+- New `data-tip` prop on `Geography`
 
 ## Installation
 
